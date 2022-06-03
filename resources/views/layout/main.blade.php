@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-    <title>Pixie - Ecommerce HTML5 Template</title>
+    <title>Pixie Furniture</title>
 
     <!-- Bootstrap core CSS -->
     <!-- CSS only -->
