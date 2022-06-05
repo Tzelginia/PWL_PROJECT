@@ -1,5 +1,5 @@
  <!-- Subscribe Form Starts Here -->
- <div class="subscribe-form">
+ <!-- <div class="subscribe-form">
      <div class="container">
          <div class="row">
              <div class="col-md-12">
@@ -31,13 +31,13 @@
              </div>
          </div>
      </div>
- </div>
+ </div> -->
  <!-- Subscribe Form Ends Here -->
 
 
 
  <!-- Footer Starts Here -->
- <div class="footer">
+ <!-- <div class="footer">
      <div class="container">
          <div class="row">
              <div class="col-md-12">
@@ -68,12 +68,12 @@
              </div>
          </div>
      </div>
- </div>
+ </div> -->
  <!-- Footer Ends Here -->
 
 
  <!-- Sub Footer Starts Here -->
- <div class="sub-footer">
+ <!-- <div class="sub-footer">
      <div class="container">
          <div class="row">
              <div class="col-md-12">
@@ -85,5 +85,5 @@
              </div>
          </div>
      </div>
- </div>
+ </div> -->
  <!-- Sub Footer Ends Here -->
