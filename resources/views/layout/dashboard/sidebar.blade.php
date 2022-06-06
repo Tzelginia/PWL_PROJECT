@@ -2,9 +2,33 @@
   <ul class="nav">
     <li class="nav-item nav-category">Menu</li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="/admin">
         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
         <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/category">
+        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+        <span class="menu-title">Category</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/product">
+        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+        <span class="menu-title">Product</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard/pelanggan">
+        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+        <span class="menu-title">Data Pelanggan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+        <span class="menu-title">Review Pelanggan</span>
       </a>
     </li>
     <!-- <li class="nav-item">
