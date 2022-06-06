@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pixie Furniture</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="dashboard/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="dashboard/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="dashboard/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{asset('dashboard/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="dashboard/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="dashboard/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="{{asset('dashboard/vendors/font-awesome/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('dashboard/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="dashboard/css/style.css">
+    <link rel="stylesheet" href="{{asset('dashboard/css/style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="dashboard/images/favicon.png" />
+    <link rel="shortcut icon" href="{{asset('dashboard/images/favicon.png')}}" />
     <!-- Bootstrp Icons  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css')}}">
 
 </head>
 
@@ -49,36 +49,37 @@
 
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="footer-inner-wraper">
-                        <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
-                            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021</span>
-                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best templates</span>
-                        </div>
-                    </div>
-                </footer>
+
                 <!-- partial -->
             </div>
             <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->
+        <footer class="footer">
+            <div class="footer-inner-wraper">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best templates</span>
+                </div>
+            </div>
+        </footer>
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="dashboard/vendors/js/vendor.bundle.base.js"></script>
+    <script src="{{asset('dashboard/vendors/js/vendor.bundle.base.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="dashboard/vendors/chart.js/Chart.min.js"></script>
-    <script src="dashboard/vendors/jquery-circle-progress/js/circle-progress.min.js"></script>
-    <script src="dashboard/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="{{asset('dashboard/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('dashboard/vendors/jquery-circle-progress/js/circle-progress.min.js')}}"></script>
+    <script src="{{asset('dashboard/js/jquery.cookie.js')}}" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="dashboard/js/off-canvas.js"></script>
-    <script src="dashboard/js/hoverable-collapse.js"></script>
-    <script src="dashboard/js/misc.js"></script>
+    <script src="{{asset('dashboard/js/off-canvas.js')}}"></script>
+    <script src="{{asset('dashboard/js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('dashboard/js/misc.js')}}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="dashboard/js/dashboard.js"></script>
+    <script src="{{asset('dashboard/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
 </body>
 
