@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\DashboardUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +41,7 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::resource('/dashboard/pelanggan', DashboardUserController::class);
+Route::get('/verify', [LoginController::class, 'verify']);
+Route::get('/block', [LoginController::class, 'block']);
+Route::get('/search', [DashboardUserController::class, 'search'])->name('search');
