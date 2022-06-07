@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DashboardCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,9 @@ use App\Http\Controllers\DashboardUserController;
 
 Route::get('/admin', function () {
     return view('dashboard.index');
-});
+})->middleware('checkRole:admin');
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
@@ -41,7 +42,8 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::resource('/dashboard/pelanggan', DashboardUserController::class);
+Route::resource('/dashboard/pelanggan', DashboardUserController::class)->middleware('checkRole:admin');
 Route::get('/verify', [LoginController::class, 'verify']);
 Route::get('/block', [LoginController::class, 'block']);
 Route::get('/search', [DashboardUserController::class, 'search'])->name('search');
+Route::resource('/dashboard/category', DashboardCategoryController::class)->middleware('checkRole:admin');
