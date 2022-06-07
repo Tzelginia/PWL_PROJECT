@@ -5,7 +5,7 @@
 </div>
 
 <div class="col-lg-8 mx-5 mt-4">
-    <form method="post" action="/admin/pelanggan/{{ $user->id }}" class="mb-5" enctype="multipart/form-data">
+    <form method="post" action="/dashboard/pelanggan/{{ $user->id }}" class="mb-5" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
