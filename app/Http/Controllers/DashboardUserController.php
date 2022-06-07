@@ -52,6 +52,7 @@ class DashboardUserController extends Controller
         return view('dashboard.pelanggan.show', [
             'user' => $user
         ]);
+     
     }
 
     /**
