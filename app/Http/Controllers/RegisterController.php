@@ -26,6 +26,6 @@ class RegisterController extends Controller
 
         User::create($ValidatedData);
 
-        return redirect('/login')->with('success', 'Registrasi telah berhasil, silahkan login');
+        return redirect('/login')->with('success', 'Registrasi telah berhasil, silahkan hubungi admin untuk verifikasi akun');
     }
 }
