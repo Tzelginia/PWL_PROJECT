@@ -45,5 +45,5 @@ Route::get('/about', function () {
 Route::resource('/dashboard/pelanggan', DashboardUserController::class)->middleware('checkRole:admin');
 Route::get('/verify', [LoginController::class, 'verify']);
 Route::get('/block', [LoginController::class, 'block']);
-Route::get('/search', [DashboardUserController::class, 'search'])->name('search');
+Route::get('/pelanggan/search', [DashboardUserController::class, 'search'])->name('search');
 Route::resource('/dashboard/category', DashboardCategoryController::class)->middleware('checkRole:admin');
