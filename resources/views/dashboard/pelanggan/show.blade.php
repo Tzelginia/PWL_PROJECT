@@ -13,7 +13,7 @@
                     <li class="list-group-item"><b>Email : </b>{{ $user->email }}</li>
                     <li class="list-group-item"><b>Role : </b>{{ $user->role }}</li>
             </div>
-            <a class="btn btn-success mt-3 mb-3" href="/admin/pelanggan">Kembali</a>
+            <a class="btn btn-success mt-3 mb-3" href="/dashboard/pelanggan">Kembali</a>
         </div>
     </div>
 </div>
