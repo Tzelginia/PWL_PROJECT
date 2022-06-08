@@ -16,7 +16,7 @@ class DashboardUserController extends Controller
     {
         return view('dashboard.pelanggan.index', [
             'title' => 'pelanggan',
-            'user' => User::paginate(2)
+            'user' => User::paginate(5)
         ]);
     }
 
