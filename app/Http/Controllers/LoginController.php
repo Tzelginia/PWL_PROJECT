@@ -55,7 +55,7 @@ class LoginController extends Controller
             $user->save();
         }
 
-        return redirect('/admin/pelanggan');
+        return redirect('/dashboard/pelanggan');
     }
     public function block(Request $request)
     {
@@ -66,6 +66,6 @@ class LoginController extends Controller
             $user->save();
         }
 
-        return redirect('/admin/pelanggan');
+        return redirect('/dashboard/pelanggan');
     }
 }
