@@ -15,7 +15,8 @@ class DashboardCategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard.category.index',[
+        return view('dashboard.category.index', [
+            'title' => 'category',
             'category' => Category::paginate(2)
         ]);
     }
@@ -27,8 +28,8 @@ class DashboardCategoryController extends Controller
      */
     public function create()
     {
-        $category = Category::all(); 
-        return view('dashboard.category.create', ['category' => $category]); 
+        $category = Category::all();
+        return view('dashboard.category.create', ['category' => $category]);
     }
 
     /**
@@ -44,7 +45,7 @@ class DashboardCategoryController extends Controller
             'nama_category' => 'required'
         ]);
         Category::create($validateData);
-        return redirect('/dashboard/category')->with('success','Kategori telah ditambahkan');
+        return redirect('/dashboard/category')->with('success', 'Kategori telah ditambahkan');
         // $request->validate([ 'id' => 'required', 
         //                     'nama_category' => 'required'
         //                 ]);
@@ -68,7 +69,6 @@ class DashboardCategoryController extends Controller
         return view('dashboard.category.show', [
             'category' => $category
         ]);
-     
     }
 
     /**
@@ -115,6 +115,12 @@ class DashboardCategoryController extends Controller
         Category::where('id', $id)->delete();
         return redirect('/dashboard/category')
             ->with('success', 'Data Berhasil Dihapus');
-    
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $category = Category::where('nama_category', 'like', "%" . $keyword . "%")->paginate(3);
+        return view('dashboard.category.index', compact('user'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
