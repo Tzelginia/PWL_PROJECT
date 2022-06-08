@@ -6,16 +6,25 @@
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
+
         </button>
-        <div class="search-field d-none d-xl-block">
-            <form class="d-flex align-items-center h-100" aSction="/search">
+        <!-- <div class="search-field d-none d-xl-block">
+            <form class="d-flex align-items-center h-100" action="/search">
                 <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                         <i class="input-group-text border-0 mdi mdi-magnify"></i>
                     </div>
-                    <input type="text" name="search" class="form-control bg-transparent border-0" placeholder="Search Pelanggan">
+                    <input type="text" name="search" class="form-control bg-transparent border-0" placeholder="Search ">
                 </div>
             </form>
+        </div> -->
+        <div class="navbar-menu-wrapper d-flex align-items-top">
+            <ul class="navbar-nav">
+                <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+                    <h1 class="welcome-text text-primary">Hello, <span class="text-black fw-bold ">{{ auth()->user()->username }}</span></h1>
+
+                </li>
+            </ul>
         </div>
         <ul class="navbar-nav navbar-nav-right">
             <div class="nav-item text-nowrap">
