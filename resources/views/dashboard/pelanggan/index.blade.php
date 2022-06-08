@@ -9,7 +9,30 @@
     {{ session('success') }}
 </div>
 @endif
-
+<!-- <div class="search-field d-none d-xl-block">
+    <ul class="navbar-nav navbar-nav-right">
+        <form class="d-flex align-items-right h-100 col-lg-4" action="/search">
+            <div class="input-group">
+                <div class="input-group-prepend bg-transparent">
+                    <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                </div>
+                <input type="text" name="search" class="form-control bg-secondary border-0" placeholder="Search ">
+            </div>
+        </form>
+    </ul>
+</div> -->
+<ul class="navbar-nav navbar-nav-right">
+    <div class="nav-item text-nowrap">
+        <form class="d-flex align-items-right h-100 col-lg-4" action="/pelanggan/search">
+            <div class="input-group">
+                <div class="input-group-prepend bg-transparent">
+                    <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                </div>
+                <input type="text" name="search" class="form-control bg-secondary border-0" placeholder="Search ">
+            </div>
+        </form>
+    </div>
+</ul>
 <div class="table-responsive col-lg-10 mx-5 mt-4">
     @if ($user->count())
     <table class="table table-striped table-lg">
