@@ -15,6 +15,7 @@ class DashboardUserController extends Controller
     public function index()
     {
         return view('dashboard.pelanggan.index', [
+            'title' => 'pelanggan',
             'user' => User::paginate(2)
         ]);
     }
@@ -52,7 +53,6 @@ class DashboardUserController extends Controller
         return view('dashboard.pelanggan.show', [
             'user' => $user
         ]);
-     
     }
 
     /**
