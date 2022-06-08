@@ -14,7 +14,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/product">
+      <a class="nav-link" href="#">
         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
         <span class="menu-title">Product</span>
       </a>
@@ -26,7 +26,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="#">
         <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
         <span class="menu-title">Review Pelanggan</span>
       </a>
