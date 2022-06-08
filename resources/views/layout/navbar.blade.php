@@ -26,10 +26,17 @@
               </ul>
               <ul class="navbar-nav ms-auto">
                   @auth
+                  @if(auth()->user()->role == 'pembeli')
+                  <li class="nav-item">
+                      <a class="nav-link " href="/login"><i class="bi bi-cart3 mx-2"></i>Trolie</a>
+                  </li>
+                  <div class="vr" style="color :white; margin: 0px 8px 0px 8px;"></div>
+                  @endif
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Welcome back , {{ auth()->user()->username }}
                       </a>
+                      @if(auth()->user()->role == 'admin')
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="/admin"><i class="bi bi-clipboard-minus"></i> My Dashboard</a></li>
                           <li>
@@ -42,6 +49,20 @@
                               </form>
 
                       </ul>
+                      @else
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#"><i class="bi bi-clipboard-minus"></i> My Transaction</a></li>
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li>
+                              <form action="/logout" action="get">
+                                  @csrf
+                                  <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i> Logout</button>
+                              </form>
+
+                      </ul>
+                      @endif
                   </li>
                   @else
                   <li>
