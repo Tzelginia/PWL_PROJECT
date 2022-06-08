@@ -11,14 +11,14 @@
 @endif
 
 <div class="table-responsive col-lg-6 mx-5 mt-4">
-<a href="/dashboard/category/create" class="btn btn-primary mb-3">Tambah Kategori</a>
+    <a href="/dashboard/category/create" class="btn btn-primary mb-3">Tambah Kategori</a>
     @if ($category->count())
     <table class="table table-striped table-lg">
         <thead class="table-dark">
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nama Kategori</th>
-            <th scope="col">Action </th>
+                <th scope="col">Action </th>
             </tr>
         </thead>
         <tbody>
