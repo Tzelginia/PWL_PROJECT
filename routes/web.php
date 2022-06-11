@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardCategoryController;
+use App\Http\Controllers\ReviewController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +49,5 @@ Route::get('/verify', [LoginController::class, 'verify']);
 Route::get('/block', [LoginController::class, 'block']);
 Route::get('/pelanggan/search', [DashboardUserController::class, 'search'])->name('search');
 Route::resource('/dashboard/category', DashboardCategoryController::class)->middleware('checkRole:admin');
+Route::resource('/review', ReviewController::class)->middleware('auth');
+Route::get('/contact/search', [ReviewController::class, 'search'])->name('search');
