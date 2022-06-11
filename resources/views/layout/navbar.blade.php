@@ -21,7 +21,7 @@
                       <a class="nav-link" href="/about">About Us</a>
                   </li>
                   <li class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
-                      <a class="nav-link" href="/contact">Contact Us</a>
+                      <a class="nav-link" href="/review/create">Contact Us</a>
                   </li>
               </ul>
               <ul class="navbar-nav ms-auto">
