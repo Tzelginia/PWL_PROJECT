@@ -1,128 +1,50 @@
 @extends('layout.main')
 @section('content')
-<!-- Page Content -->
-<!-- Items Starts Here -->
-<div class="featured-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <div class="section-heading">
-                    <div class="line-dec"></div>
-                    <h1>Featured Items</h1>
-                </div>
+
+<h1 class="mt-3 mb-3 text-center text-secondary">
+    <b> Our Products </b>
+</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <form action="/product">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Cari Produk" name="search" value="{{ request('search') }}">
+                <button class="btn btn-dark" type="submit">Search</button>
             </div>
-            <div class="col-md-8 col-sm-12">
-                <div id="filters" class="button-group">
-                    <button class="btn btn-primary" data-filter="*">All Products</button>
-                    <button class="btn btn-primary" data-filter=".new">Newest</button>
-                    <button class="btn btn-primary" data-filter=".low">Low Price</button>
-                    <button class="btn btn-primary" data-filter=".high">Hight Price</button>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
-<div class="featured container no-gutter">
-
-    <div class="row posts">
-        <div id="1" class="item new col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/kursi.jpg" alt="">
-                    <h4>Kursi Santai</h4>
-                    <h6>Rp. 400.000</h6>
+@if ($product->count())
+<div class="container">
+    <div class="row">
+        @foreach ($product as $p)
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div style="max-height: 500px; overflow:hidden">
+                    <img src="{{ asset('storage/' . $p->file_pendukung) }}" class="card-img-top" alt="{{ $p->file_pendukung }}">
                 </div>
-            </a>
-        </div>
-        <div id="2" class="item high col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/kursi_2.jpg" alt="">
-                    <h4>Kursi Kayu</h4>
-                    <h6>Rp. 200.000</h6>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $p->nama }}</h5>
+                    <!-- <p class="card-text">{{ $p->deskripsi }}</p> -->
+                    <p class="card-text"><small class="text-muted">Last updated {{ $p->created_at->diffForHumans() }}</small></p>
+                    <form>
+                        <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                        <input type="number" id="number" value="0" />
+                        <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                    </form>
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                    <a href="/product/{{ $p->id }}" class="btn btn-secondary float-right">Read more</a>
                 </div>
-            </a>
-        </div>
-        <div id="3" class="item low col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/kursi_3.jpg" alt="">
-                    <h4>Kursi Sofa</h4>
-                    <h6>Rp. 800.000</h6>
-                </div>
-            </a>
-        </div>
-        <div id="4" class="item low col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/meja.jpg" alt="">
-                    <h4>Rak Meja</h4>
-                    <h6>Rp. 150.000</h6>
-                </div>
-            </a>
-        </div>
-        <div id="5" class="item new high col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/meja_2.jpg" alt="">
-                    <h4>Meja Kayu Jati</h4>
-                    <h6>Rp. 1.000.000</h6>
-                </div>
-            </a>
-        </div>
-        <div id="6" class="item new col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/meja_3.jpg" alt="">
-                    <h4>Meja Biasa</h4>
-                    <h6>Rp. 100.000</h6>
-                </div>
-            </a>
-        </div>
-        <div id="7" class="item new high col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/almari.jpg" alt="">
-                    <h4>Almari 2 Pintu</h4>
-                    <h6>Rp. 500.000</h6>
-                </div>
-            </a>
-        </div>
-        <div id="8" class="item low new col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/almari_2.jpg" alt="">
-                    <h4>Almmari Pintu Geser</h4>
-                    <h6>Rp. 600.000</h6>
-                </div>
-            </a>
-        </div>
-        <div id="9" class="item new col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="assets/images/almari_3.jpg" alt="">
-                    <h4>Almari + Kaca</h4>
-                    <h6>Rp. 1.500.000</h6>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="page-navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul>
-                    <li class="current-page"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
             </div>
         </div>
+        @endforeach
     </div>
 </div>
-<!-- Featred Page Ends Here -->
+@else
+<p class="text-dark text-center fs-4">Produk masih belum tersedia.</p>
+@endif
+
+
 @endsection
