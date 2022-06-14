@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('product');
 });
+Route::get('/dashboardproduct', [ProductController::class, 'create']);
+Route::post('/dashboardproduct', [ProductController::class, 'store']);
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -49,5 +52,6 @@ Route::get('/verify', [LoginController::class, 'verify']);
 Route::get('/block', [LoginController::class, 'block']);
 Route::get('/pelanggan/search', [DashboardUserController::class, 'search'])->name('search');
 Route::resource('/dashboard/category', DashboardCategoryController::class)->middleware('checkRole:admin');
+Route::get('/dashboard/product', [ProductController::class, 'index'])->middleware('checkRole:admin');
 Route::resource('/review', ReviewController::class)->middleware('auth');
 Route::get('/contact/search', [ReviewController::class, 'search'])->name('search');

@@ -12,4 +12,8 @@ class Category extends Model
         'nama_category',
     ];
     use HasFactory;
+
+public function product (){
+    return $this -> hasMany(Product::class);
+}
 }
