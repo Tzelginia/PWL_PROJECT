@@ -18,7 +18,7 @@
         {
             background-image: url("assets/images/biru.jpg");
             background-repeat: ;
-            background-size: 80%;
+            background-size: 80%; 
         }
     </style>
 </head>
