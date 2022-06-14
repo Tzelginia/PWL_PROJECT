@@ -132,6 +132,6 @@ class DashboardProductController extends Controller
             Storage::delete($product->photo);
         }
         $product->delete();
-        return redirect('/dashboardadmin/product')->with('success', 'product telah dihapus');
+        return redirect('/dashboard/product')->with('success', 'product telah dihapus');
     }
 }
