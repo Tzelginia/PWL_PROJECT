@@ -27,6 +27,12 @@
     <link rel="stylesheet" href="{{asset('assets/css/tooplate-main.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
     <!--Tooplate 2114 Pixiehttps://www.tooplate.com/view/2114-pixie-->
+    <!-- <style>
+        body {
+            background-image: url("assets/img/biru.jpg");
+            background-size: 100%;
+        }
+    </style> -->
 </head>
 
 <body>
@@ -34,6 +40,25 @@
     @include('layout.navbar')
 
     @yield('content')
+
+    <!-- JS jumlah -->
+
+    <script>
+        function increaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number').value = value;
+        }
+
+        function decreaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number').value = value;
+        }
+    </script>
 
 
     @include('layout.footer')
