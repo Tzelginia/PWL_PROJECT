@@ -25,12 +25,12 @@
 
 
 <div class="table-responsive col-lg-10 mx-5 mt-4">
-    <form class="col-lg-4 mb-10" action="/pelanggan/search">
-        <div class="input-group">
+    <form class="col-lg-4 mb-10" action="/dashboard/pelanggan">
+        <div class="input-group ">
             <div class="input-group-prepend bg-transparent">
                 <i class="input-group-text border-0 mdi mdi-magnify"></i>
             </div>
-            <input type="text" name="search" class="form-control bg-secondary border-0" placeholder="Search ">
+            <input type="text" name="search" class="form-control bg-secondary border-0 text-white" placeholder="Search" value="{{ request('search') }}">
         </div>
     </form>
     <br>
