@@ -51,6 +51,22 @@
                 <!-- partial:partials/_footer.html -->
 
                 <!-- partial -->
+                <script>
+                    function previewImage() {
+                        const image = document.querySelector('#file_pendukung');
+                        const imgPreview = document.querySelector('.img-preview');
+
+                        imgPreview.style.display = 'block';
+
+                        const oFReader = new FileReader();
+                        oFReader.readAsDataURL(image.files[0]);
+
+                        oFReader.onload = function(oFREvent) {
+                            imgPreview.src = oFREvent.target.result;
+                        }
+
+                    }
+                </script>
             </div>
             <!-- main-panel ends -->
         </div>

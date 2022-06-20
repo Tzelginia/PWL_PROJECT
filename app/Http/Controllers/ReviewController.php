@@ -111,7 +111,7 @@ class ReviewController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->search;
-        $review = Review::where('subject', 'like', "%" . $keyword . "%")->paginate(3);
+        $review = Review::where('subject', 'like', "%" . $keyword . "%")->paginate(5);
         return view('dashboard.review.index', compact('review'))->with('i', (request()
             ->input('page', 1) - 1) * 5);
     }

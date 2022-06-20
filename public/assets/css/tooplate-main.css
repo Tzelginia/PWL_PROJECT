@@ -112,7 +112,7 @@ a {
 /* Banner Style */
 .banner {
 	margin-top: 0px;
-	background-image: url(../images/furniture.jpg);
+	background-image: url(/assets/img/biru.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 175px 0px;
@@ -730,4 +730,59 @@ a {
 		text-align: left;
 	} 
 
+}
+
+/* form jumlah */
+
+.value-button {
+	display: inline-flex;
+	border: 1px solid #ddd;
+	margin-bottom: 15px ;
+	width: 15px;
+	height: 20px;
+	text-align: center;
+	vertical-align: top;
+	/* padding: 11px 0; */
+	background: #eee;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.value-button:hover {
+	cursor: pointer;
+}
+
+form #decrease {
+	margin-right: -4px;
+	border-radius: 10px 0 0 8px;
+}
+
+form #increase {
+	margin-left: -4px;
+	border-radius: 0 8px 8px 0;
+}
+
+form #input-wrap {
+	margin: 0px;
+	padding: 0px;
+}
+
+input#jumlah {
+	text-align: center;
+	border: none;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin: 0px;
+	width: 40px;
+	height: 23px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }

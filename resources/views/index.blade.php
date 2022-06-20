@@ -10,7 +10,7 @@
                        <h2>Selamat Datang Di Toko Pixie Furniture</h2>
                        <div class="line-dec"></div>
                        <p>Pixie Furniture menyediakan berbagai macam bentuk barang
-                           <br><br>Please tell your friends about <a rel="nofollow" href="https://www.facebook.com/tooplate/">Tooplate</a> free template site. Thank you. Photo credit goes to <a rel="nofollow" href="https://www.pexels.com">Pexels website</a>.
+                           <br><br>Silahkan kunjungi social media <a rel="nofollow" href="https://www.facebook.com/tooplate/">Pixie</a> untuk mendapatkan info terbaru.
                        </p>
                        <div class="main-button">
                            <a href="#">Order Now!</a>
