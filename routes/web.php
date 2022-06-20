@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,4 @@ Route::resource('/dashboard/product', DashboardProductController::class)->middle
 // Route::get('/dashboard/product', [ProductController::class, 'index'])->middleware('checkRole:admin');
 Route::resource('/review', ReviewController::class)->middleware('auth');
 Route::get('/contact/search', [ReviewController::class, 'search'])->name('search');
+Route::resource('/keranjang', KeranjangController::class);
