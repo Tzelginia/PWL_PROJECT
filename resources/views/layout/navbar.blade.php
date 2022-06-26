@@ -55,8 +55,8 @@
                               </ul>
                           @else
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <li><a class="dropdown-item" href="#"><i class="bi bi-clipboard-minus"></i> My
-                                          Transaction</a></li>
+                                  <li><a class="dropdown-item" href="/transaksiUser"><i class="bi bi-clipboard-minus"></i>
+                                          My Transaction</a></li>
                                   <li>
                                       <hr class="dropdown-divider">
                                   </li>
