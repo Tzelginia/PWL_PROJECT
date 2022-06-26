@@ -27,17 +27,20 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/tooplate-main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
     <!--Tooplate 2114 Pixiehttps://www.tooplate.com/view/2114-pixie-->
-    <!-- <style>
+    <style>
         body {
             background-image: url("assets/img/biru.jpg");
             background-size: 100%;
         }
-    </style> -->
+    </style>
 </head>
 
 <body>
@@ -46,24 +49,25 @@
 
     @yield('content')
 
-    <!-- JS jumlah -->
-
     <script>
-        function increaseValue() {
-            var value = parseInt(document.getElementById('jumlah').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value++;
-            document.getElementById('jumlah').value = value;
-        }
+          function previewImage(){
+            const image = document.querySelector('#bukti');
+            const imgPreview = document.querySelector('.img-preview');
+        
+            imgPreview.style.display = 'block';
+        
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+        
+            oFReader.onload = function(oFREvent){
+              imgPreview.src = oFREvent.target.result;
+            }
+        
+          }
+          
+        </script>
 
-        function decreaseValue() {
-            var value = parseInt(document.getElementById('jumlah').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value < 1 ? value = 1 : '';
-            value--;
-            document.getElementById('jumlah').value = value;
-        }
-    </script>
+
 
 
     @include('layout.footer')
