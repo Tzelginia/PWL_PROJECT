@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Keranjang;
+use App\Models\Transaksi;
 
 class KeranjangController extends Controller
 {
@@ -47,7 +48,7 @@ class KeranjangController extends Controller
         $keranjang->product_id = $request->get('product_id');
         $keranjang->user_id = $request->user()->id;
         $keranjang->save();
-        return redirect("/product")->with('success', 'keranjang Berhasil Ditambahkan');
+        return redirect("/product")->with('success', 'Product berhsail dimasukkan Keranjang');
     }
 
     /**
@@ -92,6 +93,16 @@ class KeranjangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Keranjang::where('id', $id)->delete();
+        return redirect('/keranjang')
+            ->with('successDel', 'Data Berhasil Dihapus');
+    }
+
+    public function transaksi()
+    {
+        $transaksi = Transaksi::with('user')->with('product')->get();
+        $transaksi = Transaksi::orderBy('id', 'desc')->paginate(5);
+        return view('transaksi', compact('transaksi'))->with('i', (request()
+            ->input('page', 1) - 1) * 5);
     }
 }
