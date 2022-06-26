@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123'),
             'role' => 'admin',
-            'verfy' => '1'
+            'verify' => '1'
         ]);
 
         User::create([
@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'tzelginianc@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'pembeli',
-            'verfy' => '1'
+            'verify' => '1'
         ]);
 
         Category::create([
