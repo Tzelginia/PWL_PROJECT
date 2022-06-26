@@ -28,4 +28,9 @@ class Product extends Model
     {
         return $this->hasMany(Keranjang::class);
     }
+
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
 }
