@@ -69,8 +69,9 @@
                 </script>
             </div>
             <!-- main-panel ends -->
+            <!-- page-body-wrapper ends -->
+        
         </div>
-        <!-- page-body-wrapper ends -->
         <footer class="footer">
             <div class="footer-inner-wraper">
                 <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
