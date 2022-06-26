@@ -48,6 +48,9 @@
         </thead>
         <tbody>
             @foreach ($user as $u)
+            @if($u->role == 'admin')
+                @continue
+            @endif
             <tr>
                 <td>{{ $u->id }}</td>
                 <td>{{ $u->username }}</td>
