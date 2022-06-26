@@ -9,6 +9,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ Route::get('/about', function () {
 Route::resource('/dashboard/pelanggan', DashboardUserController::class)->middleware('checkRole:admin');
 Route::get('/verify', [LoginController::class, 'verify']);
 Route::get('/block', [LoginController::class, 'block']);
+
 Route::get('/pelanggan/search', [DashboardUserController::class, 'search'])->name('search');
 Route::resource('/dashboard/category', DashboardCategoryController::class)->middleware('checkRole:admin');
 Route::resource('/dashboard/product', DashboardProductController::class)->middleware('checkRole:admin');
@@ -63,3 +65,8 @@ Route::resource('/dashboard/product', DashboardProductController::class)->middle
 Route::resource('/review', ReviewController::class)->middleware('auth');
 Route::get('/contact/search', [ReviewController::class, 'search'])->name('search');
 Route::resource('/keranjang', KeranjangController::class);
+Route::get('/transaksiUser', [KeranjangController::class, 'transaksi']);
+
+Route::resource('/dashboard/transaksi', TransaksiController::class);
+Route::get('/verifyTransaksi', [TransaksiController::class, 'verify']);
+Route::post('/bayar', [TransaksiController::class, 'bayar']);
