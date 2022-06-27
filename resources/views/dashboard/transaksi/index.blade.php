@@ -4,7 +4,7 @@
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mx-5 mt-4 border-bottom ">
         <h1 class="h2">Data Transaksi</h1>
     </div>
-
+  
     @if (session()->has('success'))
         <div class="alert alert-success col-lg-10 mt-3 mx-5" role="alert">
             {{ session('success') }}
@@ -14,6 +14,7 @@
 
 
     <div class="table-responsive col-lg-10 mx-5 mt-4">
+        <a class="btn btn-danger btn-sm mb-3" href="{{ route('cetak') }}"><i class="bi bi-printer"></i> Cetak Ke PDF</a>
         @if ($transaksi->count())
             <table class="table table-striped table-lg">
                 <thead class="table-dark">
