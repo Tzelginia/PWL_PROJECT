@@ -19,7 +19,7 @@ class DashboardProductController extends Controller
     public function index()
     {
         $product = Product::with('category')->get();
-        $product = Product::all();
+        $product = Product::orderBy('category_id', 'asc')->paginate(3);
         return view('dashboard.product.index', compact('product'))->with('i', (request()
             ->input('page', 1) - 1) * 5);
     }
