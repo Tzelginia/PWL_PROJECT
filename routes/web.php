@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\CetakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,5 @@ Route::get('/transaksiUser', [KeranjangController::class, 'transaksi']);
 Route::resource('/dashboard/transaksi', TransaksiController::class);
 Route::get('/verifyTransaksi', [TransaksiController::class, 'verify']);
 Route::post('/bayar', [TransaksiController::class, 'bayar']);
+
+Route::get('cetak', CetakController::class)->name('cetak');
