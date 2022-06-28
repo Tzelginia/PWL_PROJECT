@@ -41,7 +41,8 @@
                                 <!-- <p class="card-text">{{ $p->deskripsi }}</p> -->
                                 <p class="card-text"><small class="text-muted">Last updated
                                         {{ $p->created_at->diffForHumans() }}</small></p>
-                                @if (Auth::user()->role == 'pembeli')
+                                @auth
+                                @if (auth()->user()->role == 'pembeli')
                                     <form action="/keranjang" method="POST">
                                         @csrf
                                         <div class="value-button" id="decrease"
@@ -75,11 +76,14 @@
                                             }
                                         </script>
                                     </form>
-                                    @elseif (Auth::user()->role == 'admin')
+                                    @elseif (auth()->user()->role == 'admin')
                                     <a href="/product/{{ $p->id }}"
-                                        class="btn btn-secondary float-right d-inline btn-sm">Read
-                                        more</a>
-                                @endif
+                                        class="btn btn-secondary float-right d-inline btn-sm">Read more</a>
+                                    @endauth
+                                        @else
+                                        <a href="/product/{{ $p->id }}"
+                                        class="btn btn-secondary float-right d-inline btn-sm">Read more</a>
+                                    @endif
 
 
                             </div>
