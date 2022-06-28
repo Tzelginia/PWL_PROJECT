@@ -39,6 +39,8 @@
         body {
             background-image: url("assets/img/biru.jpg");
             background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
     </style>
 </head>
