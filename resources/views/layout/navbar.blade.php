@@ -21,9 +21,14 @@
                   <li class="nav-link {{ Request::is('about') ? 'active' : '' }}">
                       <a class="nav-link" href="/about">About Us</a>
                   </li>
-                  <li class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
-                      <a class="nav-link" href="/review/create">Contact Us</a>
-                  </li>
+                  @auth
+                    @if (auth()->user()->role == 'pembeli')
+                        <li class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
+                        <a class="nav-link" href="/review/create">Contact Us</a>
+                        </li>
+                    @endif
+                  @endauth
+                  
               </ul>
               <ul class="navbar-nav ms-auto">
                   @auth
