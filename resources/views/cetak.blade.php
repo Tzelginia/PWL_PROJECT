@@ -23,17 +23,33 @@
             <h5><b>Data Pembayaran</b></h5>
            <table class="table table-dark table-striped-columns">
                  <tr class="table-active">
+                    <th>ID Transaksi</th>
+                    <th>Username</th>
+                    <th>Product</th>
                     <th>Jumlah</th>
                     <th>Total</th>
-                    <th>User ID</th>
-                    <th>Product ID</th>
+                    <th>Pembayaran</th>
+                    
                 </tr>
                 @foreach ($trans as $t)
                 <tr>
-                    <td>{{ $t -> jumlah}}</td>
-                    <td>{{ $t -> total}}</td>
-                    <td>{{ $t -> user->username}}</td>
+                    <td>{{ $t -> id}}</td>
+                     <td>{{ $t -> user->username}}</td>
                     <td>{{ $t -> product->nama}}</td>
+                    <td>{{ $t -> jumlah}} pcs</td>
+                    <td>Rp. {{ $t -> total}}</td>
+                    <td>
+                        @if ($t->bukti == null)
+                            Belum Bayar
+                        @else
+                            @if ($t->verify == 0)
+                                Belum diverifikasi
+                            @else
+                                Lunas
+                            @endif
+                        @endif
+                    </td>
+                   
                 </tr>
                 @endforeach
             </table>
