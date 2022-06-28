@@ -12,9 +12,16 @@
                        <p>Pixie Furniture menyediakan berbagai macam bentuk barang
                            <br><br>Silahkan kunjungi social media <a rel="nofollow" href="https://www.facebook.com/tooplate/">Pixie</a> untuk mendapatkan info terbaru.
                        </p>
-                       <div class="main-button">
-                           <a href="#">Order Now!</a>
-                       </div>
+                       @auth
+                            <div class="main-button">
+                                <a href="/product">Order Now!</a>
+                            </div>
+                        @else
+                            <div class="main-button">
+                                <a href="/login">Order Now!</a>
+                            </div>    
+                        @endauth
+                              
                    </div>
                </div>
            </div>
