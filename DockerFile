@@ -1,5 +1,7 @@
 FROM php:8.0.2-fpm-alpine
-
+FROM gcr.io/cloud-buiders/gcloud
+COPY notice.sh /usr/bin
+ENTRYPOINT [ "/usr/bin/notice.sh" ]
 RUN apk add --no-cache nginx wget
 
 RUN mkdir -p /run/nginx
