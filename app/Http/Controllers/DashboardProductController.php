@@ -156,8 +156,20 @@ class DashboardProductController extends Controller
     public function destroy($id)
     {
         $product = Product::where('id', $id)->first();
-        if ($product->photo) {
-            Storage::delete($product->photo);
+        if ($product->file_pendukung) {
+                  $storage = new StorageClient([
+            'keyFilePath' => public_path('key.json')
+        ]);
+
+
+        $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
+        $bucket = $storage->bucket($bucketName);
+        $object = $bucket->object($product->file_pendukung);
+
+
+
+        $object->delete();
+       
         }
         $product->delete();
         return redirect('/dashboard/product')->with('success', 'product telah dihapus');
