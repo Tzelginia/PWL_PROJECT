@@ -55,14 +55,13 @@ class DashboardProductController extends Controller
         if ($request->file('file_pendukung')) {
             // $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
                 // $image = $request->file('file_pendukung')->store('product-img');
-                $filenameWithExt = $request->file('file_pendukung')->getClientOriginalName();
-                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                $extension = $request->file('file_pendukung')->getClientOriginalExtension();
-                $filenameSimpan = $filename . '_' . time() . '.' . $extension;
-                $path = $request->file('file_pendukung')->storeAs('product-img', $filenameSimpan);
-                $savepath = 'product-img/' . $filenameSimpan;
+                // $filenameWithExt = $request->file('file_pendukung')->getClientOriginalName();
+                // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // $extension = $request->file('file_pendukung')->getClientOriginalExtension();
+                // $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+                // $path = $request->file('file_pendukung')->storeAs('product-img', $filenameSimpan);
+                // $savepath = 'product-img/' . $filenameSimpan;
 
-                $validatedData['file_pendukung'] = $savepath;
                 $googleConfigFile = file_get_contents(config_path('key.json'));
                 $storage = new StorageClient([
                         'keyFile' => json_decode($googleConfigFile, true)
@@ -70,12 +69,40 @@ class DashboardProductController extends Controller
                 $storageBucketName = config('googlecloud.storage_bucket');
                 $bucket = $storage->bucket($storageBucketName);
 
-                // dd($image);
-                $fileSource = fopen(storage_path('app/public/'. $savepath), 'r');
-                $bucket->upload($fileSource, [
+                 //get filename with extension
+                $filenamewithextension = pathinfo($request->file('file_pendukung')->getClientOriginalName(), PATHINFO_FILENAME);
+                // $filenamewithextension = $request->file('file_pendukung')->getClientOriginalName();
+
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+                //get file extension
+                $extension = $request->file('file_pendukung')->getClientOriginalExtension();
+
+                //filename to store
+                $filenametostore = $filename . '_' . uniqid() . '.' . $extension;
+
+                Storage::put('product-img/' . $filenametostore, fopen($request->file('file_pendukung'), 'r+'));
+
+                $filepath = storage_path('app/public/product-img/' . $filenametostore);
+                $validatedData['file_pendukung'] = 'product-img/' . $filenametostore;
+                $object = $bucket->upload(
+                    fopen($filepath, 'r'),
+                    [
                         'predefinedAcl' => 'publicRead',
-                        'name' => $savepath
-                ]);
+                        'name' => $validatedData['file_pendukung']
+                    ]
+                );
+
+                
+                
+
+                // dd($image);
+                // $fileSource = fopen(storage_path('app/public/'. $savepath), 'r');
+                // $bucket->upload($fileSource, [
+                //         'predefinedAcl' => 'publicRead',
+                //         'name' => $savepath
+                // ]);
                 
         }
         
