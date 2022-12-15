@@ -161,18 +161,18 @@ class DashboardProductController extends Controller
 
         if ($request->file('file_pendukung')) {
             if ($request->oldfile_pendukung) {
-            $storage = new StorageClient([
-            'keyFilePath' => public_path('key.json')
-            ]);
+                // Storage::delete($request->oldfile_pendukung);
+                $storage = new StorageClient([
+                'keyFilePath' => public_path('key.json')
+                ]);
 
-            $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
-            $bucket = $storage->bucket($bucketName);
-            $object = $bucket->object($product->oldfile_pendukung);
+                $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
+                $bucket = $storage->bucket($bucketName);
+                $object = $bucket->object($request->oldfile_pendukung);
 
-
-
-            $object->delete();
-            }
+                $object->delete();
+                    
+                }
             $product->file_pendukung = $request->file('file_pendukung')->store('product-img');
             // $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
             $googleConfigFile = file_get_contents(config_path('key.json'));
@@ -228,14 +228,12 @@ class DashboardProductController extends Controller
             'keyFilePath' => public_path('key.json')
             ]);
 
-
             $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
             $bucket = $storage->bucket($bucketName);
             $object = $bucket->object($product->file_pendukung);
 
             $object->delete();
-       
-        }
+            }
         $product->delete();
         return redirect('/dashboard/product')->with('success', 'product telah dihapus');
     }

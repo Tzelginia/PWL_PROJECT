@@ -43,7 +43,7 @@
             <label for="file_pendukung" class="form-label @error('file_pendukung') is-invalid @enderror">file_pendukung Member</label>
             <input type="hidden" name="oldfile_pendukung" value="{{ $product->file_pendukung }}">
             @if ($product->file_pendukung)
-            <img src="{{ asset('storage/' . $product->file_pendukung) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+            <img src="{{ asset('https://storage.cloud.google.com/tzelginia_uas_bucket/' . $product->file_pendukung) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
             @else
             <img class="img-preview img-fluid mb-3 col-sm-5">
             @endif
