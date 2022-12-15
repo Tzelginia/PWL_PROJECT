@@ -57,7 +57,7 @@
                                     <td>{{ $p->harga }}</td>
                                     <td>
                                         <div class="wrapper">
-                                            <img src="{{ asset('storage/' . $p->file_pendukung) }}" alt="" class="rounded mx-auto d-block" width="100%" height="100%">
+                                            <img src="{{ asset('https://storage.cloud.google.com/tzelginia_uas_bucket/' . $p->file_pendukung) }}" alt="" class="rounded mx-auto d-block" width="100%" height="100%">
                                         </div>
                                     </td>
                                     <td>
