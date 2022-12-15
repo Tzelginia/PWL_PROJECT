@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\CetakController;
+use App\Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
