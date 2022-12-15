@@ -66,6 +66,7 @@ class DashboardProductController extends Controller
                         'predefinedAcl' => 'publicRead',
                         'name' => $image
                 ]);
+                
         }
         
     
