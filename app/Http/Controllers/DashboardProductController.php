@@ -8,6 +8,7 @@ use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Google\Cloud\Storage\StorageClient;
 
 class DashboardProductController extends Controller
 {
@@ -52,9 +53,42 @@ class DashboardProductController extends Controller
         ]);
 
         if ($request->file('file_pendukung')) {
-            $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
-        }
+            // $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
+            if ($request->file('file_pendukung')) {
+            $photo = $request->file('file_pendukung');
+            // $photo = $request->file('file_pendukung')->store('gambars', 'public');
+            $storage = new StorageClient([
+                'keyFilePath' => public_path('key.json')
+            ]);
 
+            $bucketName = env('GOOGLE_CLOUD_BUCKET');
+            $bucket = $storage->bucket($bucketName);
+
+            //get filename with extension
+            $filenamewithextension = pathinfo($request->file('file_pendukung')->getClientOriginalName(), PATHINFO_FILENAME);
+            // $filenamewithextension = $request->file('file_pendukung')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension = $request->file('file_pendukung')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename . '_' . uniqid() . '.' . $extension;
+
+            Storage::put('storage/' . $filenametostore, fopen($request->file('file_pendukung'), 'r+'));
+
+            $filepath = storage_path( $filenametostore);
+
+            $object = $bucket->upload(
+                fopen($filepath, 'r'),
+                [
+                    'predefinedAcl' => 'publicRead'
+                ]
+            );
+        }
+    }
         Product::create($validatedData);
 
         return redirect('/dashboard/product')->with('success', 'Data Produk Berhasil Ditambah');

@@ -73,3 +73,8 @@ Route::get('/verifyTransaksi', [TransaksiController::class, 'verify']);
 Route::post('/bayar', [TransaksiController::class, 'bayar']);
 
 Route::get('cetak', CetakController::class)->name('cetak');
+
+Route::get('/migration', function () {
+    Artisan::call('migrate:fresh');
+    Artisan::call('db:seed');
+});

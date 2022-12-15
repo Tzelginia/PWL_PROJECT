@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "heroic-oarlock-364608",
+  "private_key_id": "290057a0c902fa0cef21f2c4f1465601eae02adf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDWSp58F6mshXVZ\n6KISZCGNSI7ASZ6qcV9YemNBMTo4+auifMU8/dT6Po0/wyhmFMYN8VBFWn4jNAqr\nx0YAeNsZnJYf0fiyNIX47i3/aDFhIMkvcGr/cUOSmUbMs5uaexNUad6/ZevvQZxR\noqF6zVzlA9Z22VW1rNqL0DufW7QG0sZkuZIqRGHQD+gwpFnnJ+o577JTQMHeKNQH\nuArOYqQjDrRzu79JbLWlWqxvcIp2x8xE1+0ZzMogK3TpD009wAhwJp7idfFWcaRN\n4x1m8P47ad28HOfU+8pqrSgQI0AEH9rfpm4Lw5BFZ7euPwXE/TAbtq7YN/H/0yse\nG3gS/jpXAgMBAAECggEABoUasVfe97rPyT6Ev96ADtZoUX1r8G+moQCISJGA3f7q\ns/Tr42Etu7dvgMMlVYXISOBQuut37wZEVNmpTZZfxDW5c5pl4LYsZViJ2b2H0xa2\nSFU5TDBcB/fV6aCFWXvpKKZX+qbVOOBcKzexhhT9gJJPUipmqzJpK9vYFI8ruRFe\nZ4NIGXEDJJbdy8XrfwNNqCnNf7W6AJb/o1zBwPTuIgFmfJthjotdIPs6Z1A62Jet\nbOhsRs14Irl/pAyu8BOy0718RTYOmRBNjpVBpCtnp97tlNxIlcwOyzPoOH7KJg2h\nmjk3Hc+/Ed5NNcn4P2HoZZ1w9thhWMvNzPV+wyyFgQKBgQD1Cj79JkG2W5yAIsmL\nKFpSUBmyTRss4BitIiY/l7FArSBw/gbsi0xcDknEy75rDGvv4SKAv/U2Qi7mIVRk\n5qFE6oyA7A0gTJHl1grHwiEdrnwKRV5nZoLsyGvzBVFGS1MLXX3uWWxaDLU1SVXZ\nWeDSgKhY6oLEeBeFDGJy5s37oQKBgQDf4EvmUatK9dyiAIoEzdmTXCsI0RhEU3Bp\nWpsmqR/qqJML/xht122uBfHqIzq0PJYlPLL10o6IzRYwFwfP2XpQj5NwjZrpSbGz\n06oWS5QSdPlzdXpFnutPOKHTrLZrGyvcG9vPKeKGYh425F/L9LhA6J8UalNS3h3q\nRa5FiTsy9wKBgESi0xPrhFqE/KgzlkqBShNmVlxIFsWSG7dbKmWDouWf2MdtkBjv\nx7q9UdJq03J+rzko0ZZIrnG9Rg+15ELDCwcXv7VY6TBT4kYDl09uxAHhXuMtnQzP\nfPrABOS0Z5iN/rvfOyfpKl1q09MSMJbKAxxTZ1RIk8pebRAacPUIS0ghAoGAcELJ\n7IlhaqpU44t/qh8LDmC2V6p6D7EDemDr0fwWvBWh/u8A8fuHzS6/+xeFVWHYLH3+\ng1P9E0475Qt3aFt2gTUtys/HMVo52KG39YwaiRLND3+GO6kP996/DyTZKGYsnSf/\nFie7poVG/2GPQ/fH+Qxs0NDsTW6B87rTQ50n6UsCgYAKb7RLPLninc5gPAzw8RQz\nyOOqlse6nkk9X5+Cd96c1ahV+rYp2UYlr1adk9c/SRCYg+1tRJb7hn/ywxnVno0W\ns1hKhaWiIGRnnCBaC5YuQa9NRbFe86ep3dTbVTXBX3v+Z1FsRDZ4nGfkAN9njH2e\nvU51IFhhJz4yvtzXiQPpUg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "tzelginiauasawan@heroic-oarlock-364608.iam.gserviceaccount.com",
+  "client_id": "105219195460226901466",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tzelginiauasawan%40heroic-oarlock-364608.iam.gserviceaccount.com"
+}
