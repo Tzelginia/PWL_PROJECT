@@ -54,13 +54,15 @@ class DashboardProductController extends Controller
 
         if ($request->file('file_pendukung')) {
             $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
-              $image = $request->file('file_pendukung')->store('product-img');
+                $image = $request->file('file_pendukung')->store('product-img');
                 $googleConfigFile = file_get_contents(config_path('key.json'));
                 $storage = new StorageClient([
                         'keyFile' => json_decode($googleConfigFile, true)
                 ]);
                 $storageBucketName = config('googlecloud.storage_bucket');
                 $bucket = $storage->bucket($storageBucketName);
+
+                dd($image);
                 $fileSource = fopen(storage_path('app/public/'. $image), 'r');
                 $bucket->upload($fileSource, [
                         'predefinedAcl' => 'publicRead',
