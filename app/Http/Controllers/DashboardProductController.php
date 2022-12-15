@@ -161,22 +161,52 @@ class DashboardProductController extends Controller
 
         if ($request->file('file_pendukung')) {
             if ($request->oldfile_pendukung) {
-                Storage::delete($request->oldfile_pendukung);
+            $storage = new StorageClient([
+            'keyFilePath' => public_path('key.json')
+            ]);
+
+            $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
+            $bucket = $storage->bucket($bucketName);
+            $object = $bucket->object($product->oldfile_pendukung);
+
+
+
+            $object->delete();
             }
             $product->file_pendukung = $request->file('file_pendukung')->store('product-img');
             // $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
-              $image = $request->file('file_pendukung')->store('product-img');
-                $googleConfigFile = file_get_contents(config_path('key.json'));
+            $googleConfigFile = file_get_contents(config_path('key.json'));
                 $storage = new StorageClient([
                         'keyFile' => json_decode($googleConfigFile, true)
                 ]);
                 $storageBucketName = config('googlecloud.storage_bucket');
                 $bucket = $storage->bucket($storageBucketName);
-                $fileSource = fopen(public_path('/storage/'. $image), 'r');
-                $bucket->upload($fileSource, [
+
+                 //get filename with extension
+                $filenamewithextension = pathinfo($request->file('file_pendukung')->getClientOriginalName(), PATHINFO_FILENAME);
+                // $filenamewithextension = $request->file('file_pendukung')->getClientOriginalName();
+
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+                //get file extension
+                $extension = $request->file('file_pendukung')->getClientOriginalExtension();
+
+                //filename to store
+                $filenametostore = $filename . '_' . uniqid() . '.' . $extension;
+
+                Storage::put('public/product-img/' . $filenametostore, fopen($request->file('file_pendukung'), 'r+'));
+
+                $filepath = storage_path('app/public/product-img/' . $filenametostore);
+                $validatedData['file_pendukung'] = 'product-img/' . $filenametostore;
+                $object = $bucket->upload(
+                    fopen($filepath, 'r'),
+                    [
                         'predefinedAcl' => 'publicRead',
-                        'name' => $image
-                ]);
+                        'name' => $validatedData['file_pendukung']
+                    ]
+                );
+
         }
 
         $product->save();
@@ -194,18 +224,16 @@ class DashboardProductController extends Controller
     {
         $product = Product::where('id', $id)->first();
         if ($product->file_pendukung) {
-                  $storage = new StorageClient([
+            $storage = new StorageClient([
             'keyFilePath' => public_path('key.json')
-        ]);
+            ]);
 
 
-        $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
-        $bucket = $storage->bucket($bucketName);
-        $object = $bucket->object($product->file_pendukung);
+            $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
+            $bucket = $storage->bucket($bucketName);
+            $object = $bucket->object($product->file_pendukung);
 
-
-
-        $object->delete();
+            $object->delete();
        
         }
         $product->delete();
