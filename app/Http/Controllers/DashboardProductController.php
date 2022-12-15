@@ -82,7 +82,7 @@ class DashboardProductController extends Controller
                 //filename to store
                 $filenametostore = $filename . '_' . uniqid() . '.' . $extension;
 
-                Storage::put('product-img/' . $filenametostore, fopen($request->file('file_pendukung'), 'r+'));
+                Storage::put('public/product-img/' . $filenametostore, fopen($request->file('file_pendukung'), 'r+'));
 
                 $filepath = storage_path('app/public/product-img/' . $filenametostore);
                 $validatedData['file_pendukung'] = 'product-img/' . $filenametostore;
