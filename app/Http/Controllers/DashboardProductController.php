@@ -61,7 +61,7 @@ class DashboardProductController extends Controller
                 ]);
                 $storageBucketName = config('googlecloud.storage_bucket');
                 $bucket = $storage->bucket($storageBucketName);
-                $fileSource = fopen(storage_path('/app/public/'. $image), 'r');
+                $fileSource = fopen(storage_path('app/public/'. $image), 'r');
                 $bucket->upload($fileSource, [
                         'predefinedAcl' => 'publicRead',
                         'name' => $image
