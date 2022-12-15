@@ -198,12 +198,12 @@ class DashboardProductController extends Controller
                 Storage::put('public/product-img/' . $filenametostore, fopen($request->file('file_pendukung'), 'r+'));
 
                 $filepath = storage_path('app/public/product-img/' . $filenametostore);
-                $validatedData['file_pendukung'] = 'product-img/' . $filenametostore;
+                $product->file_pendukung = 'product-img/' . $filenametostore;
                 $object = $bucket->upload(
                     fopen($filepath, 'r'),
                     [
                         'predefinedAcl' => 'publicRead',
-                        'name' => $validatedData['file_pendukung']
+                        'name' => $product->file_pendukung
                     ]
                 );
 
