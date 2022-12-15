@@ -53,8 +53,16 @@ class DashboardProductController extends Controller
         ]);
 
         if ($request->file('file_pendukung')) {
-            $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
-                $image = $request->file('file_pendukung')->store('product-img');
+            // $validatedData['file_pendukung'] = $request->file('file_pendukung')->store('product-img');
+                // $image = $request->file('file_pendukung')->store('product-img');
+                $filenameWithExt = $request->file('file_pendukung')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('file_pendukung')->getClientOriginalExtension();
+                $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+                $path = $request->file('file_pendukung')->storeAs('product-img', $filenameSimpan);
+                $savepath = 'product-img/' . $filenameSimpan;
+
+                $validatedData['file_pendukung'] = $savepath;
                 $googleConfigFile = file_get_contents(config_path('key.json'));
                 $storage = new StorageClient([
                         'keyFile' => json_decode($googleConfigFile, true)
@@ -62,11 +70,11 @@ class DashboardProductController extends Controller
                 $storageBucketName = config('googlecloud.storage_bucket');
                 $bucket = $storage->bucket($storageBucketName);
 
-                dd($image);
-                $fileSource = fopen(storage_path('app/public/'. $image), 'r');
+                // dd($image);
+                $fileSource = fopen(storage_path('app/public/'. $savepath), 'r');
                 $bucket->upload($fileSource, [
                         'predefinedAcl' => 'publicRead',
-                        'name' => $image
+                        'name' => $savepath
                 ]);
                 
         }
