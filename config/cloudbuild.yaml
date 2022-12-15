@@ -1,0 +1,3 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['run', 'deploy', 'myservice', '--image', 'gcr.io/$PROJECT_ID/myimage', '--region', 'asia-southeast1', '--platform', 'managed', '--allow-unauthenticated']
